@@ -73,11 +73,11 @@ void QuestTool::MainPage::Money_OnFocusLost(Platform::Object^ sender, Windows::U
 
 	try
 	{
-		localMoney = stoi(Utils::PlatformToString(TB_PostQuestDialogue->Text));
+		localMoney = stoi(Utils::PlatformToString(TB_Money->Text));
 	}
 	catch (std::invalid_argument const& ex)
 	{
-		wstring temp = L"Incorrect format : " + Utils::PlatformToWString(TB_PostQuestDialogue->Text);
+		wstring temp = L"Incorrect format : " + Utils::PlatformToWString(TB_Money->Text);
 
 		OutputDebugString(temp.c_str());
 	}
