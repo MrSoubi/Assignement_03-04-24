@@ -8,7 +8,54 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel Orientation="Horizontal">
+        <!-- List -->
 
-    </Grid>
+        <StackPanel>
+            <TextBlock Text="Quest list"/>
+        </StackPanel>
+        
+        <!-- Editor -->
+
+        <StackPanel Orientation="Vertical">
+            <!-- Top part -->
+            <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="4" Margin="4">
+                <StackPanel  Orientation="Vertical">
+                    <TextBox x:Name="TB_ID" Header="ID" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0"/>
+                    <TextBox x:Name="TB_Title" Header="Title" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox x:Name="TB_NPC" Header="NPC" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="2"/>
+                </StackPanel>
+            </Border>
+
+            <!-- State part -->
+            <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="4" Margin="4">
+                <TextBox Header="Quest State" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0"/>
+            </Border>
+
+            <!-- Dialogue part -->
+            <Border Grid.Row="2" BorderBrush="Silver" BorderThickness="4" Margin="4">
+                <StackPanel MinWidth="400" VerticalAlignment="Center">
+                    <TextBox x:Name="TB_PreQuestDialogue" Header="Pre-Quest Dialogue" MinHeight="150" Margin="4"/>
+                    <TextBox x:Name="TB_InProgressDialogue" Header="In Progress dialogue" MinHeight="150" Margin="4"/>
+                    <TextBox x:Name="TB_PostQuestDialogue" Header="Post-Quest dialogue" MinHeight="150" Margin="4"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Rewards part -->
+            <Border Grid.Row="3" BorderBrush="Silver" BorderThickness="4" Margin="4">
+                <StackPanel>
+                    <TextBox x:Name="TB_Money" Header="Money" Margin="4"/>
+                    <TextBox x:Name="TB_XP" Header="XP" Margin="4"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        
+        <!-- Tests -->
+        <StackPanel>
+            <TextBlock Text="Tests"/>
+        </StackPanel>
+        
+    </StackPanel>
+
+            
 </Page>
