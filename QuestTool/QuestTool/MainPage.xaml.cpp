@@ -74,17 +74,32 @@ void QuestTool::MainPage::Money_OnFocusLost(Platform::Object^ sender, Windows::U
 	try
 	{
 		localMoney = stoi(Utils::PlatformToString(TB_Money->Text));
+		currentQuest->SetMoney(localMoney);
 	}
 	catch (std::invalid_argument const& ex)
 	{
 		wstring temp = L"Incorrect format : " + Utils::PlatformToWString(TB_Money->Text);
-
 		OutputDebugString(temp.c_str());
+
+		currentQuest->SetMoney(0);
 	}
 }
 
 
 void QuestTool::MainPage::XP_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+	int localXp;
 
+	try
+	{
+		localXp = stoi(Utils::PlatformToString(TB_XP->Text));
+		currentQuest->SetXp(localXp);
+	}
+	catch (std::invalid_argument const& ex)
+	{
+		wstring temp = L"Incorrect format : " + Utils::PlatformToWString(TB_XP->Text);
+		OutputDebugString(temp.c_str());
+
+		currentQuest->SetXp(0);
+	}
 }
