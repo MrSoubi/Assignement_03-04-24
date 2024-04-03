@@ -11,6 +11,12 @@ enum State
 	ACHIEVED
 };
 
+enum Objectives {
+	SLAY,
+	LOOT,
+	SAVE
+};
+
 class Quest
 {
 private:
