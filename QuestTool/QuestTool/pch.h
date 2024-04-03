@@ -8,3 +8,9 @@
 #include <ppltasks.h>
 
 #include "App.xaml.h"
+
+#include <string>
+#include <memory>
+
+#include "Quest.h"
+#include "Utils.h"

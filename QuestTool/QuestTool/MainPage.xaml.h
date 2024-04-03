@@ -17,5 +17,14 @@ namespace QuestTool
 	public:
 		MainPage();
 
+	private:
+		void ID_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void Title_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void NPC_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void PreQuestDialogue_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void InProgressDialogue_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void PostQuestDialogue_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void Money_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void XP_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }
