@@ -27,10 +27,21 @@
                 </StackPanel>
             </Border>
 
-            <!-- State part -->
-            <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="4" Margin="4">
-                <TextBox Header="Quest State" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0"/>
-            </Border>
+            <!-- State and objectives part -->
+            <StackPanel Orientation="Horizontal" Grid.Row="1" BorderBrush="Silver" BorderThickness="4" Margin="4">
+                <ComboBox x:Name="CB_QuestState" Header="Quest State" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0" LostFocus="QuestState_OnLostFocus">
+                    <ComboBoxItem Content="Not started"/>
+                    <ComboBoxItem Content="In progress"/>
+                    <ComboBoxItem Content="Achieved"/>
+                </ComboBox>
+                <ComboBox x:Name="CB_Objective" Header="Objective" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0" LostFocus="Objective_OnLostFocus">
+                    <ComboBoxItem Content="Slay"/>
+                    <ComboBoxItem Content="Loot"/>
+                    <ComboBoxItem Content="Save"/>
+                </ComboBox>
+                <TextBox x:Name="TB_Quantity" Header="Quantity" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0" LostFocus="Quantity_OnLostFocus"/>
+            </StackPanel>
+            
 
             <!-- Dialogue part -->
             <Border Grid.Row="2" BorderBrush="Silver" BorderThickness="4" Margin="4">

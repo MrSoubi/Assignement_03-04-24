@@ -9,7 +9,10 @@ Quest::Quest()
 	this->id = "0";
 	this->title = "New Quest";
 	this->npcId = "0";
+	
 	this->state = NOT_STARTED;
+	this->objective = SLAY;
+	this->quantity = 1;
 
 	this->preQuestDialogue = "";
 	this->inProgressDialogue = "";
@@ -37,6 +40,16 @@ void Quest::SetNpcId(string npcId)
 void Quest::SetState(State state)
 {
 	this->state = state;
+}
+
+void Quest::SetObjective(Objective objective)
+{
+	this->objective = objective;
+}
+
+void Quest::SetQuantity(int amount)
+{
+	this->quantity = amount;
 }
 
 void Quest::SetPreQuestDialogue(string content)
@@ -82,6 +95,16 @@ string Quest::GetNpcId()
 State Quest::GetState()
 {
 	return this->state;
+}
+
+Objective Quest::GetObjective()
+{
+	return this->objective;
+}
+
+int Quest::GetQuantity()
+{
+	return this->quantity;
 }
 
 string Quest::GetPreQuestDialogue()

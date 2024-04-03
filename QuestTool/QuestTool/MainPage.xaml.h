@@ -26,5 +26,8 @@ namespace QuestTool
 		void PostQuestDialogue_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void Money_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void XP_OnFocusLost(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void QuestState_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void Objective_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void Quantity_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

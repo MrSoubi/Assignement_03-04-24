@@ -103,3 +103,54 @@ void QuestTool::MainPage::XP_OnFocusLost(Platform::Object^ sender, Windows::UI::
 		currentQuest->SetXp(0);
 	}
 }
+
+
+void QuestTool::MainPage::QuestState_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	string selectedItem = Utils::PlatformToString(CB_QuestState->SelectedValue->ToString());
+
+	if (selectedItem == "Not started") {
+		currentQuest->SetState(NOT_STARTED);
+	}
+	if (selectedItem == "In progress") {
+		currentQuest->SetState(IN_PROGRESS);
+	}
+	if (selectedItem == "Achieved") {
+		currentQuest->SetState(ACHIEVED);
+	}
+}
+
+
+void QuestTool::MainPage::Objective_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	string selectedItem = Utils::PlatformToString(CB_Objective->SelectedValue->ToString());
+
+	if (selectedItem == "Slay") {
+		currentQuest->SetObjective(SLAY);
+	}
+	if (selectedItem == "Loot") {
+		currentQuest->SetObjective(LOOT);
+	}
+	if (selectedItem == "Save") {
+		currentQuest->SetObjective(SAVE);
+	}
+}
+
+
+void QuestTool::MainPage::Quantity_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	int localQuantity;
+
+	try
+	{
+		localQuantity = stoi(Utils::PlatformToString(TB_Quantity->Text));
+		currentQuest->SetQuantity(localQuantity);
+	}
+	catch (std::invalid_argument const& ex)
+	{
+		wstring temp = L"Incorrect format : " + Utils::PlatformToWString(TB_Quantity->Text);
+		OutputDebugString(temp.c_str());
+
+		currentQuest->SetQuantity(0);
+	}
+}
