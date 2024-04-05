@@ -22,10 +22,12 @@ using namespace Windows::UI::Xaml::Navigation;
 using namespace std;
 
 unique_ptr<Quest> currentQuest;
+unique_ptr<Player> player;
 
 MainPage::MainPage()
 {
 	currentQuest = make_unique<Quest>();
+	player = make_unique<Player>();
 
 	InitializeComponent();
 }
@@ -105,22 +107,6 @@ void QuestTool::MainPage::XP_OnFocusLost(Platform::Object^ sender, Windows::UI::
 }
 
 
-void QuestTool::MainPage::QuestState_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
-{
-	string selectedItem = Utils::PlatformToString(CB_QuestState->SelectedValue->ToString());
-
-	if (selectedItem == "Not started") {
-		currentQuest->SetState(NOT_STARTED);
-	}
-	if (selectedItem == "In progress") {
-		currentQuest->SetState(IN_PROGRESS);
-	}
-	if (selectedItem == "Achieved") {
-		currentQuest->SetState(ACHIEVED);
-	}
-}
-
-
 void QuestTool::MainPage::Objective_OnLostFocus(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	string selectedItem = Utils::PlatformToString(CB_Objective->SelectedValue->ToString());
@@ -153,4 +139,47 @@ void QuestTool::MainPage::Quantity_OnLostFocus(Platform::Object^ sender, Windows
 
 		currentQuest->SetQuantity(0);
 	}
+}
+
+
+void QuestTool::MainPage::Talk_OnClic(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	if (currentQuest->GetState() == NOT_STARTED)
+	{
+		TB_NPCDialogue->Text = TB_PreQuestDialogue->Text;
+	}
+	if (currentQuest->GetState() == IN_PROGRESS)
+	{
+		TB_NPCDialogue->Text = TB_InProgressDialogue->Text;
+	}
+	if (currentQuest->GetState() == ACHIEVED)
+	{
+		TB_NPCDialogue->Text = TB_PostQuestDialogue->Text;
+	}
+}
+
+
+void QuestTool::MainPage::Start_OnClic(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	currentQuest->SetState(IN_PROGRESS);
+	TB_QuestState->Text = "In progress";
+}
+
+
+void QuestTool::MainPage::End_OnClic(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	currentQuest->SetState(ACHIEVED);
+	TB_QuestState->Text = "Achieved";
+	player->AddMoney(currentQuest->GetMoney());
+	player->AddXP(currentQuest->GetXp());
+
+	TB_PlayerMoney->Text = player->GetMoney().ToString();
+	TB_PlayerXP->Text = player->GetXP().ToString();
+}
+
+
+void QuestTool::MainPage::Reset_OnClic(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	currentQuest->SetState(NOT_STARTED);
+	TB_QuestState->Text = "Not started";
 }

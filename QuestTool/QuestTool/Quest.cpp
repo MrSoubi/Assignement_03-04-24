@@ -74,7 +74,7 @@ void Quest::SetMoney(int amount)
 
 void Quest::SetXp(int amount)
 {
-	this->xp = xp;
+	this->xp = amount;
 }
 
 string Quest::GetId()

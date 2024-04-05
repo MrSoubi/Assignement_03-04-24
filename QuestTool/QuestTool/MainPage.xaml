@@ -29,11 +29,7 @@
 
             <!-- State and objectives part -->
             <StackPanel Orientation="Horizontal" Grid.Row="1" BorderBrush="Silver" BorderThickness="4" Margin="4">
-                <ComboBox x:Name="CB_QuestState" Header="Quest State" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0" LostFocus="QuestState_OnLostFocus">
-                    <ComboBoxItem Content="Not started"/>
-                    <ComboBoxItem Content="In progress"/>
-                    <ComboBoxItem Content="Achieved"/>
-                </ComboBox>
+                <TextBox x:Name="TB_QuestState" Header="State" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0"/>
                 <ComboBox x:Name="CB_Objective" Header="Objective" HorizontalAlignment="Stretch" Margin="10" Grid.Column="1" Grid.Row="0" LostFocus="Objective_OnLostFocus">
                     <ComboBoxItem Content="Slay"/>
                     <ComboBoxItem Content="Loot"/>
@@ -62,8 +58,23 @@
         </StackPanel>
         
         <!-- Tests -->
-        <StackPanel>
-            <TextBlock Text="Tests"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <Button x:Name="B_Talk" Content="Talk to NPC" Margin="4" HorizontalAlignment="Center" Click="Talk_OnClic"/>
+            <Button x:Name="B_Start" Content="Start quest" Margin="4" HorizontalAlignment="Center" Click="Start_OnClic"/>
+            <Button x:Name="B_End" Content="End quest" Margin="4" HorizontalAlignment="Center" Click="End_OnClic"/>
+            <Button x:Name="B_Reset" Content="Reset quest" Margin="4" HorizontalAlignment="Center" Click="Reset_OnClic"/>
+            <StackPanel>
+                <TextBlock Text="Current dialogue"/>
+                <TextBlock x:Name="TB_NPCDialogue" Margin="4" HorizontalAlignment="Center" MinWidth="300" MinHeight="200"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Player's money"/>
+                <TextBlock x:Name="TB_PlayerMoney" Margin="4" HorizontalAlignment="Center" MinWidth="300" MinHeight="50"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Player's xp"/>
+                <TextBlock x:Name="TB_PlayerXP" Margin="4" HorizontalAlignment="Center" MinWidth="300" MinHeight="50"/>
+            </StackPanel>
         </StackPanel>
         
     </StackPanel>

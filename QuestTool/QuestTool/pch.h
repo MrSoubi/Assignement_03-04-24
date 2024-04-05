@@ -13,4 +13,5 @@
 #include <memory>
 
 #include "Quest.h"
+#include "Player.h"
 #include "Utils.h"

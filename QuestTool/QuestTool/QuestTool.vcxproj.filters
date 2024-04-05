@@ -16,11 +16,13 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Quest.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Quest.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
